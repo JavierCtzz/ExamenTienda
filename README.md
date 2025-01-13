@@ -1,124 +1,124 @@
-Tienda en Línea
+# 🛒 Tienda en Línea - Catálogo de Productos y Gestión de Pedidos
 
-Este proyecto consiste en una tienda en línea con funcionalidades de catálogo de productos y gestión de pedidos. La solución está dividida en un backend desarrollado en Laravel y un frontend implementado en Angular.
+### **Descripción**
+Este proyecto consiste en una tienda en línea que permite a los usuarios explorar un catálogo de productos, gestionar pedidos y administrar el inventario de manera eficiente. Incluye roles específicos para **administradores** y **clientes** con autenticación segura mediante JWT.
 
-Características
-Backend (Laravel)
-Autenticación JWT con roles:
-Soporte para roles de administrador y cliente.
+---
 
-CRUDs implementados:
-Productos:
-Atributos: nombre, descripción, precio, stock, imagen.
-Pedidos:
-Atributos: usuario, productos, total, estado.
+## 📋 **Requisitos del Proyecto**
 
-Página de inicio:
-Listado de productos con opciones para filtrar y buscar.
-Diseño responsivo utilizando Angular Material.
-Carrito de compras.
+### **Backend (Laravel)**
 
-Panel administrativo:
-Gestión completa de productos (CRUD).
-Listado de pedidos con opción para actualizar su estado.
+- **Autenticación JWT con roles**:
+  - **Administrador**: Gestión completa del sistema.
+  - **Cliente**: Navegación, compra y gestión de pedidos.
+  
+- **CRUDs Implementados**:
+  1. **Productos**:
+     - Campos: `nombre`, `descripción`, `precio`, `stock`, `imagen`.
+  2. **Pedidos**:
+     - Campos: `usuario`, `productos`, `total`, `estado`.
+     
+---
 
-Requisitos del Sistema
-Backend (Laravel)
-PHP >= 8.1
-Composer
-MySQL o PostgreSQL
-Laravel >= 9.x
+### **Frontend (Angular)**
 
-Paquetes adicionales:
-tymon/jwt-auth para la autenticación JWT.
-Frontend (Angular)
-Node.js >= 16.x
-Angular CLI >= 15.x
+#### **Páginas Implementadas**
+1. **Página de Inicio**:
+   - Listado de productos con opciones de filtro y búsqueda.
+   - Diseño responsivo utilizando Angular Material.
 
-Paquetes adicionales:
-@angular/material para el diseño responsivo.
-rxjs para la gestión de estados reactivos.
-Configuración del Proyecto
-Backend
+2. **Carrito de Compras**:
+   - Agregar productos al carrito.
+   - Visualización del total acumulado.
+   - Finalización de pedidos.
 
-Clonar el repositorio:
+3. **Panel Administrativo**:
 
-bash
-Copiar código
-git clone <URL_DEL_REPOSITORIO>  
-cd backend 
+---
 
-Instalar dependencias:
+## 🚀 **Tecnologías Utilizadas**
 
-bash
-Copiar código
-composer install  
+| **Tecnología**       | **Descripción**                                        |
+|-----------------------|--------------------------------------------------------|
+| **Laravel**           | Framework PHP para el desarrollo del backend.          |
+| **MySQL**             | Base de datos para almacenar productos, pedidos y usuarios. |
+| **Angular**           | Framework JavaScript para el desarrollo del frontend.  |
+| **Angular Material**  | Librería de componentes UI para un diseño moderno.     |
+| **JWT (Json Web Token)** | Autenticación segura basada en tokens.             |
 
-Configurar el archivo .env:
+---
 
-Base de datos (DB_CONNECTION, DB_DATABASE, DB_USERNAME, DB_PASSWORD).
+## 🛠️ **Instalación**
 
-Generar la clave JWT:
+### **Requisitos Previos**
+Antes de comenzar, asegúrate de tener instalados los siguientes componentes:
 
-bash
-Copiar código
-php artisan jwt:secret
+- [Composer](https://getcomposer.org/) (para el backend en Laravel)
+- [Node.js y npm](https://nodejs.org/) (para el frontend en Angular)
+- [MySQL](https://www.mysql.com/) (base de datos)
+- [Git](https://git-scm.com/) (para clonar el repositorio)
 
-Migrar las tablas y poblar datos iniciales:
+---
 
-bash
-Copiar código
-php artisan migrate --seed  
+### **1️⃣ Clonar el Repositorio**
+```bash
+git clone https://github.com/TuUsuario/TiendaEnLinea.git
+cd TiendaEnLinea
+```
 
-Iniciar el servidor:
+2. Instalar Dependencias
+Una vez dentro del directorio del proyecto, instala todas las dependencias de PHP necesarias utilizando Composer:
 
-bash
-Copiar código
-php artisan serve  
+```bash
+composer install
+Este comando descargará e instalará todas las librerías definidas en el archivo composer.json.
+```
 
-Frontend
+3. Configurar el Entorno
+Copia el archivo de ejemplo .env a .env:
 
-Clonar el repositorio:
+```bash
+cp .env.example .env
 
-bash
-Copiar código
-git clone <URL_DEL_REPOSITORIO>  
-cd frontend  
+```
+Luego, abre el archivo .env y configura las siguientes variables:
 
-Instalar dependencias:
+```bash
+APP_NAME="YourAppName"
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost
 
-bash
-Copiar código
-npm install  
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
 
-Iniciar el servidor de desarrollo:
+```
+4. Generar la Clave de la Aplicación
+Genera una clave única para la aplicación:
 
-bash
-Copiar código
-ng serve  
+```bash
+php artisan key:generate
+```
 
-Acceder a la aplicación en:
+5. Migrar la Base de Datos
+Ejecuta las migraciones para crear las tablas necesarias en la base de datos:
 
-http://localhost:4200 
+```bash
+php artisan migrate
+```
 
-Uso del Proyecto
-Roles y Acceso
-Administrador:
-Puede gestionar productos y actualizar estados de pedidos desde el panel administrativo.
-Cliente:
-Puede explorar productos, agregar al carrito, y realizar pedidos.
-CRUD de Productos y Pedidos
-Desde el backend, las rutas están protegidas con autenticación JWT para garantizar la seguridad de las operaciones.
-Filtrado y Búsqueda
-Los productos pueden ser filtrados por:
-Categorías.
-Rango de precios.
+6. Ejecutar el Servidor Local
+Inicia el servidor de desarrollo de Laravel:
 
-Tecnologías Utilizadas
-Backend
-Laravel 9.x
-MySQL/PostgreSQL
-JWT Authentication
-Frontend
-Angular 10.x
-Angular Material
+```bash
+php artisan serve
+```
+
+Accede al backend en http://127.0.0.1:8000.
+
